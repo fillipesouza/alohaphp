@@ -10,5 +10,6 @@
  $usuario = Usuario::criaUsuario($rm,$nome,$curso);
  $usuario->setarSenha($senha);
  $usuarioDAO->save($usuario);
- echo("Usuario inserido");
+ 
+ header("Location: /alohaphp/index.php?msg=ok");
 ?>

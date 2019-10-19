@@ -9,7 +9,13 @@ $usuario2 = Usuario::criaUsuario(38,"Felipe Aug","Informática");
 array_push($listaDeUsuarios, $usuario1);
 array_push($listaDeUsuarios, $usuario2);
 ?>
-<? include_once "partials/head.php"; ?>
+<?php include_once "partials/head.php"; ?>
+
+<?php 
+   if( isset($_GET["msg"])) {
+      echo("Usuário Inserido com Sucesso");
+   }
+?>
 
 <table class="table table-striped table-inverse table-responsive">
     <thead class="thead-inverse">
@@ -33,8 +39,13 @@ array_push($listaDeUsuarios, $usuario2);
             <?php } ?>
         </tbody>
         <tfoot>
-        <tr><td colspan="5" ><button type="button" class="btn btn-primary">CRIAR USUARIO</button> </td></tr>
+        <tr><td colspan="5" ><!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  CRIAR USUARIO
+</button> </td></tr>
         </tfoot>
 </table>
 
-<? include_once "partials/foot.php"; ?>
+<?php include_once "partials/modal.php"; ?>
+
+<?php include_once "partials/footer.php"; ?>
