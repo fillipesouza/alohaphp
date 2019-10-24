@@ -12,8 +12,24 @@ session_start();
 <?php include_once "partials/head.php"; ?>
 
 <?php 
-   if( isset($_GET["msg"])) {
-      echo("Usuário Inserido com Sucesso");
+   if( isset($_GET["msg"]) && isset($_GET["op"]) ) {
+       $msg = "";
+      switch($_GET['op']){
+          case 'c':
+          $msg = "Usuario Inserido com Sucesso";
+             break;
+           case 'u':
+           $msg = "Usuario Modificado com Sucesso";
+             break;
+           case 'd':
+           $msg = "Usuario Removido com Sucesso";
+             break;
+           default:
+             break;
+      }
+      if($msg != ''){
+          echo "<div class='alert-dismissible' >".$msg."</div>";
+      }
    }
 ?>
 

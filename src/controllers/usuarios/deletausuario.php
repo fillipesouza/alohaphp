@@ -6,6 +6,6 @@
 
  $usuarioDAO->delete($rm);
 
- header("Location: /alohaphp/index.php?msg=ok");
+ header("Location: /alohaphp/index.php?op=d&msg=ok");
 
  ?>

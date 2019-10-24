@@ -11,5 +11,5 @@
  $usuario->setarSenha($senha);
  $usuarioDAO->save($usuario);
  
- header("Location: /alohaphp/index.php?msg=ok");
+ header("Location: /alohaphp/index.php?op=c&msg=ok");
 ?>

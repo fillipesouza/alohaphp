@@ -9,5 +9,5 @@
  $usuario = Usuario::criaUsuario($rm,$nome,$curso);
  $usuarioDAO->update($usuario);
  
- header("Location: /alohaphp/index.php?msg=ok");
+ header("Location: /alohaphp/index.php?op=u&msg=ok");
 ?>
