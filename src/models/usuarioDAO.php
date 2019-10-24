@@ -13,13 +13,19 @@ class UsuarioDAO {
         $stmt->execute([$usuario->rm, $usuario->nome, $usuario->senha, $usuario->curso]);
     }
 
-    function delete($usuario){
-        $sql = "DELETE FROM ".$this->tabela. " where rm=?";
+    function update($usuario){
+        $sql = "UPDATE ".$this->tabela." SET nome=?,curso=? where rm=?";
         $stmt = $this->con->prepare($sql);
-        $stmt->execute([$usuario->rm]);
+        $stmt->execute([$usuario->nome, $usuario->curso, $usuario->rm]);
     }
 
-    function readAll($usuario){
+    function delete($rm){
+        $sql = "DELETE FROM ".$this->tabela. " where rm=?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->execute([$rm]);
+    }
+
+    function readAll(){
         $sql = "SELECT * FROM ".$this->tabela;
         $stmt = $this->con->prepare($sql);
         $stmt->execute();

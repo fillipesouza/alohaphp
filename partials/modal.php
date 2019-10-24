@@ -85,7 +85,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="src/controllers/usuarios/modificausuario.php" method="post">
+      <form action="src/controllers/usuarios/deletausuario.php" method="post">
         <div class="modal-body">
         <input type="hidden" id="dl-rm" name="rm">            
         </div>

@@ -3,11 +3,11 @@ session_start();
 ?>
 <?php include_once('src/models/usuario.php'); ?>
 <?php
-$listaDeUsuarios = array();
-$usuario1 = Usuario::criaUsuario(24,"Mat Costa","Informática");
-$usuario2 = Usuario::criaUsuario(38,"Felipe Aug","Informática");
-array_push($listaDeUsuarios, $usuario1);
-array_push($listaDeUsuarios, $usuario2);
+  require_once "src/helpers/banco.php";
+  require_once "src/models/usuarioDAO.php";
+  $usuarioDAO = new UsuarioDAO($pdo);
+  $listaDeUsuarios = $usuarioDAO->readAll();
+ 
 ?>
 <?php include_once "partials/head.php"; ?>
 
@@ -24,7 +24,7 @@ array_push($listaDeUsuarios, $usuario2);
             <th>NOME</th>
             <th>CURSO</th>
             <th>EDITAR</th>
-            <th>REMOVER</th>+++
+            <th>REMOVER</th>
         </tr>
         </thead>
         <tbody>
@@ -33,8 +33,15 @@ array_push($listaDeUsuarios, $usuario2);
                     <td><?=$usuario->rm ?></td>
                     <td><?=$usuario->nome ?></td>
                     <td><?=$usuario->curso ?></td>
-                    <td><a onclick="modalEditar(<?=$usuario->rm?>, '<?=$usuario->nome?>', '<?=$usuario->curso?>')" data-toggle="modal" data-target="#modal-edicao"> edit </a></td>
-                    <td><a onclick="modalDeletar(<?=$usuario->rm?>)" data-toggle="modal" data-target="#modal-delecao"> delete </a> </td>
+                    <td>
+                       <a onclick="modalEditar(<?=$usuario->rm?>, '<?=$usuario->nome?>', '<?=$usuario->curso?>')" data-toggle="modal" data-target="#modal-edicao">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                     </td>
+                    <td>
+                      <a onclick="modalDeletar(<?=$usuario->rm?>)" data-toggle="modal" data-target="#modal-delecao">
+                    <i class="fa fa-times"></i>
+                     </a> </td>
                  </tr>
             <?php } ?>
         </tbody>
