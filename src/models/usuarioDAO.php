@@ -9,7 +9,7 @@ class UsuarioDAO {
     }
     function save($usuario){
         $sql = "INSERT INTO ".$this->tabela." (rm,nome,senha,curso) values (?,?,?,?)";
-        $stmt = $this->con->prepare($sql);
+        $stmt = $this->con->prepare($sql); 
         $stmt->execute([$usuario->rm, $usuario->nome, $usuario->senha, $usuario->curso]);
     }
 
@@ -32,6 +32,19 @@ class UsuarioDAO {
         $results = $stmt->fetchAll(PDO::FETCH_CLASS, "Usuario");
         return $results;
         
+    }
+
+    function buscaPorUsuarioESenha($rm, $senha){
+        
+        $sql = "SELECT * FROM ".$this->tabela. " where rm=? and senha=?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->execute([$rm,$senha]);
+        $results = $stmt->fetchAll(PDO::FETCH_CLASS, "Usuario");
+        if(count($results) > 0){
+            return $results[0];
+        } else {
+            return null;
+        }
     }
 }
 
