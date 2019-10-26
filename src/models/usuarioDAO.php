@@ -8,9 +8,9 @@ class UsuarioDAO {
         $this->con = $con;
     }
     function save($usuario){
-        $sql = "INSERT INTO ".$this->tabela." (rm,nome,senha,curso) values (?,?,?,?)";
+        $sql = "INSERT INTO ".$this->tabela." (rm,nome,senha,curso,admin) values (?,?,?,?,?)";
         $stmt = $this->con->prepare($sql); 
-        $stmt->execute([$usuario->rm, $usuario->nome, $usuario->senha, $usuario->curso]);
+        $stmt->execute([$usuario->rm, $usuario->nome, $usuario->senha, $usuario->curso,$usuario->admin]);
     }
 
     function update($usuario){

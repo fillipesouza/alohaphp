@@ -13,6 +13,8 @@ session_start();
  if($usuario != null){
      $_SESSION['logado'] = true;
      $_SESSION['nome_usuario'] = $usuario->nome;
+     $_SESSION['foto_usuario'] = 'foto_'.md5($rm).'.jpg';
+     echo $_SESSION['foto_usuario'];
      header("Location: /alohaphp/admin.php");
  } else {
      header("Location: /alohaphp/login.php");
