@@ -8,9 +8,9 @@
 </head>
 <body>
     La la la la la la la laia 
-    O Palmeiras não tem mundial
-    O Palmeiras não tem mundial
-    Não tem copinha, não tem mundial
-    Não tem copinha, não tem mundial
+    O Palmeiras tem mundial
+    O Palmeiras tem mundial
+    Tem copinha, tem mundial de 51 (uma boa idéia)
+    Tem copinha, tem mundial de 51 (uma boa idéia)
 </body>
 </html>
